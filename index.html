@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WanderWise — Travel Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>WanderWise</h1>
+        <p>Discover 100+ destinations by activities, seasons, and trip style.</p>
+      </div>
+      <button id="randomBtn" class="btn btn-random">🎲 Random Destination</button>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar panel">
+        <h2>Find Your Next Trip</h2>
+        <label>
+          Search destination
+          <input id="searchInput" type="search" placeholder="Try Tokyo, beaches, food..." />
+        </label>
+
+        <label>
+          Sort by
+          <select id="sortSelect">
+            <option value="relevance">Relevance</option>
+            <option value="popularity">Popularity</option>
+            <option value="budgetAsc">Budget (Low to High)</option>
+            <option value="budgetDesc">Budget (High to Low)</option>
+            <option value="duration">Recommended Duration</option>
+          </select>
+        </label>
+
+        <label>
+          Activity / experience
+          <select id="activityFilter">
+            <option value="all">All</option>
+          </select>
+        </label>
+
+        <label>
+          Region
+          <select id="regionFilter">
+            <option value="all">All</option>
+          </select>
+        </label>
+
+        <label>
+          Season focus
+          <select id="seasonFilter">
+            <option value="all">All</option>
+            <option value="peak">Peak season</option>
+            <option value="off">Off season</option>
+          </select>
+        </label>
+
+        <section class="compare-box">
+          <h3>Compare destinations</h3>
+          <p>Select up to 3 from the list, then compare.</p>
+          <button id="compareBtn" class="btn">Compare Selected</button>
+          <button id="clearCompareBtn" class="btn btn-secondary">Clear</button>
+        </section>
+
+        <p id="resultCount" class="result-count"></p>
+      </aside>
+
+      <section class="content">
+        <div id="map" class="panel map"></div>
+        <div id="destinationGrid" class="grid"></div>
+      </section>
+    </main>
+
+    <dialog id="destinationDialog">
+      <article id="destinationDetail"></article>
+      <button id="closeDialog" class="btn">Close</button>
+    </dialog>
+
+    <dialog id="compareDialog">
+      <article id="compareContent"></article>
+      <button id="closeCompareDialog" class="btn">Close</button>
+    </dialog>
+
+    <footer>
+      <small>Built for GitHub Pages · Weather from Open-Meteo (no API key required)</small>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
